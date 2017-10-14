@@ -1,12 +1,13 @@
 var mover = require('./lib/mover')
 var asyn = require('async')
 
-exports.run = function () {
+exports.run = function (rootDir) {
   process.stdin.setEncoding('utf8')
 
   var files = []
   var tail = ''
 
+  // Process stdin in safe manner.
   process.stdin.on('readable', () => {
     const chunk = process.stdin.read()
     var parts
@@ -25,11 +26,15 @@ exports.run = function () {
 
   process.stdin.on('end', () => {
     asyn.eachSeries(files, function (fpath, next) {
-      mover.moveFile(fpath, next)
+      mover.moveFile(fpath, rootDir, next)
     }, function then (err) {
       if (err) {
-        console.error(err)
+        console.log('Error: ' + err.message)
+        return
       }
+
+      // Automator displayNotification is able to process one line from stdin.
+      console.log('Moved files successfully')
     })
   })
 }

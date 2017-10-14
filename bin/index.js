@@ -7,6 +7,7 @@ var program = require('commander')
 program
   .version(pjson.version)
   .usage('[options]')
+  .option('-r, --root <dirpath>', 'Specify a root for YYYY dirs. Defaults to ~')
   .description(pjson.description)
   .on('--help', function () {
     // Additional newline.
@@ -15,4 +16,4 @@ program
   .parse(process.argv)
 
 // Does not run if --help is given
-tohiver.run()
+tohiver.run(program.root)
