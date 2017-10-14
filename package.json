@@ -1,0 +1,39 @@
+{
+  "name": "tohiver",
+  "version": "1.0.0",
+  "description": "Move prefixed files to archive hierarchy",
+  "keywords": [
+    "archive",
+    "fs"
+  ],
+  "homepage": "https://github.com/axelpale/tohiver",
+  "main": "index.js",
+  "bin": {
+    "tohiver": "bin/index.js"
+  },
+  "author": {
+    "name": "Akseli Palen",
+    "email": "akseli.palen@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/axelpale/tohiver.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "async": "^2.5.0",
+    "commander": "^2.11.0",
+    "fs-extra": "^4.0.2"
+  },
+  "devDependencies": {
+    "command-line-test": "^1.0.10",
+    "standard": "^10.0.3"
+  },
+  "scripts": {
+    "test": "mocha ; npm run lint",
+    "test:cli": "node test/cli.test.js",
+    "lint": "standard",
+    "fix": "standard --fix",
+    "release": "npm run test && npm publish"
+  }
+}
