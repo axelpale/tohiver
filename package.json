@@ -4,7 +4,11 @@
   "description": "Move prefixed files to archive hierarchy",
   "keywords": [
     "archive",
-    "fs"
+    "fs",
+    "macos",
+    "osx",
+    "automation",
+    "automator"
   ],
   "homepage": "https://github.com/axelpale/tohiver",
   "main": "index.js",

@@ -2,6 +2,7 @@
 
 Move files and directories that are prefixed with a 4-digit year to year-based directories from **macOS** context menu. For example you can do the following after installation: right-click a directory `2017-12-25-christmas-photos` in Finder and choose `Move to Archive`. The directory will be moved under `/Users/yourname/some/dir/2017` and a notification about the success will be displayed. Your Christmas photos are now available at `/Users/yourname/some/dir/2017/2017-12-25-christmas-photos`.
 
+Personally I use this to archive files into Dropbox systematically.
 
 ## Install
 
