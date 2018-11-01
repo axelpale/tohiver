@@ -1,6 +1,11 @@
 # tohiver
 
-Move files and directories that are prefixed with a 4-digit year to year-based directories from **macOS** context menu. For example you can do the following after installation: right-click a directory `2017-12-25-christmas-photos` in Finder and choose `Move to Archive`. The directory will be moved under `/Users/yourname/some/dir/2017` and a notification about the success will be displayed. Your Christmas photos are now available at `/Users/yourname/some/dir/2017/2017-12-25-christmas-photos`.
+Speed up your file organising. Get a service to your **macOs** context menu that moves the selected files based on few simple rules. For example you can do the following after installation: right-click a directory `2017-12-25-christmas-photos` in Finder and choose `Move to Archive`. The directory will be moved under `/Users/yourname/some/dir/2017` and a notification about the success will be displayed. Your Christmas photos are now available at `/Users/yourname/some/dir/2017/2017-12-25-christmas-photos`.
+
+Features:
+
+- Move files and directories that are prefixed with a 4-digit year to year-based directories.
+- Move files and directories whose name contain a keyword to a given directory.
 
 Personally I use this to archive files into Dropbox systematically.
 
@@ -35,7 +40,7 @@ Fourth, create an **Automator** workflow by following these steps:
 
 Now, recall the absolute paths from the third step because Run Shell Script understands only absolute paths. Write a line into the Run Shell Script action, similar to:
 
-    /usr/local/bin/node /usr/local/bin/tohiver --root /Users/yourname/some/dir
+    /usr/local/bin/node /usr/local/bin/tohiver --yyyy /Users/yourname/some/dir
 
 This is enough to do the job. However, it is nice to have a notification about success or possible errors. To display a notification, drag a **Run JavaScript** action to the workflow and copy in the following code:
 
@@ -59,6 +64,13 @@ The code basically displays the first line of tohiver's output. It also detects 
 
 Finally, choose a name for your workflow (e.g. Move to Archive) and then File > Save. Now, when you right-click a file or directory in Finder, you should notice a new service among the last items of the context menu.
 
+## Command Line Interface
+
+    tohiver --yyyy <dirpath> --tagged <dirpath> --tagged <dirpath>
+
+## Development
+
+Use `npm link` to install the module CLI globally. Test manually by running `tohiver`, then feed input and close with ctrl-d.
 
 ## Licence
 
