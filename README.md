@@ -33,8 +33,8 @@ Fourth, create an **Automator** workflow by following these steps:
 
 - open Automator. It is installed by default in macOS.
 - In Automator, select from menu: File > New
-- Choose a type for your document: Service
-- Choose "Service receives selected **files and folders** in **Finder.app**"
+- Choose a type for your document: Quick Action (called *Service* before macOS Mojave)
+- Choose "Workflow receives selected **files and folders** in **Finder.app**"
 - Drag **Run Shell Script** action to the workflow
 - In the action, choose "Shell: **/bin/bash**" and "Pass input: **to stdin**"  
 
